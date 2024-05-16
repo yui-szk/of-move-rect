@@ -10,7 +10,7 @@ int displayWidth, displayHeight;
 bool over;
 
 std::string text;
-const std::string menu = "MousePressed:No_Print\nRightClickDragged:Move_RedRectangle\nLeftClickDragged:Move_BlueRectangle\nPressed_key[p]:shima_bigger\nPressed_key[m]:shima_smaller\nPressed_key[c]:close/open_menu";
+const std::string menu = "MousePressed:No_Paint\nRightClickDragged:Move_RedRectangle\nLeftClickDragged:Move_BlueRectangle\nPressed_key[p]:shima_bigger\nPressed_key[m]:shima_smaller\nPressed_key[c]:close/open_menu";
 
 //--------------------------------------------------------------
 void ofApp::setup()
@@ -180,11 +180,11 @@ void ofApp::keyPressed(int key)
     // p/mを押下時にshimaを拡大/縮小
     if (key == 'p')
     {
-        scale += 0.5;
+        scale += 0.1;
     }
     if (key == 'm')
     {
-        scale -= 0.5;
+        scale -= 0.1;
     }
 }
 
