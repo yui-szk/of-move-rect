@@ -9,6 +9,9 @@ int width, height;
 int displayWidth, displayHeight;
 bool over;
 
+std::string text;
+const std::string menu = "MousePressed:No_Print\nRightClickDragged:Move_RedRectangle\nLeftClickDragged:Move_BlueRectangle\nPressed_key[c]:close/open_menu";
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
@@ -29,6 +32,8 @@ void ofApp::setup()
     displayHeight = ofGetHeight();
 
     over = false;
+
+    text = menu;
 }
 
 //--------------------------------------------------------------
@@ -145,6 +150,9 @@ void ofApp::draw()
     ofDrawCircle(posShimaX - scale * 50, posShimaY - scale * 30, scale * 15);
     ofDrawCircle(posShimaX + scale * 50, posShimaY - scale * 30, scale * 15);
     ofDrawTriangle(posShimaX - scale * 20, posShimaY - scale * 15, posShimaX, posShimaY - scale * 30, posShimaX + scale * 20, posShimaY - scale * 15);
+
+    // テキストを表示
+    ofDrawBitmapString(text, 10, 20);
 }
 
 //--------------------------------------------------------------
@@ -155,6 +163,18 @@ void ofApp::exit()
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
+    // cを押下時にテキスト表示を切り替え
+    if (key == 'c')
+    {
+        if (text != " ")
+        {
+            text = " ";
+        }
+        else
+        {
+            text = menu;
+        }
+    }
 }
 
 //--------------------------------------------------------------
