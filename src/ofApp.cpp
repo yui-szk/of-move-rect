@@ -10,12 +10,13 @@ int displayWidth, displayHeight;
 bool over;
 
 std::string text;
-const std::string menu = "MousePressed:No_Print\nRightClickDragged:Move_RedRectangle\nLeftClickDragged:Move_BlueRectangle\nPressed_key[c]:close/open_menu";
+const std::string menu = "MousePressed:No_Print\nRightClickDragged:Move_RedRectangle\nLeftClickDragged:Move_BlueRectangle\nPressed_key[p]:shima_bigger\nPressed_key[m]:shima_smaller\nPressed_key[c]:close/open_menu";
 
 //--------------------------------------------------------------
 void ofApp::setup()
 {
     ofSetBackgroundColor(200, 200, 200);
+    ofSetCircleResolution(60);
 
     posRedX = 100, posRedY = 250;
     redDx = 3, redDy = 3;
@@ -174,6 +175,16 @@ void ofApp::keyPressed(int key)
         {
             text = menu;
         }
+    }
+
+    // p/mを押下時にshimaを拡大/縮小
+    if (key == 'p')
+    {
+        scale += 0.5;
+    }
+    if (key == 'm')
+    {
+        scale -= 0.5;
     }
 }
 
